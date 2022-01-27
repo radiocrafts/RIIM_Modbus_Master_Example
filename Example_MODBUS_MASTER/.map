@@ -1,0 +1,211 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH_COMMON     0x00002000         0x000004ff         xr
+FLASH_PLATFORM_APP 0x00002500         0x00043b00         xr
+FLASH_USER_APP_VERSION 0x00046000         0x00000004         xr
+FLASH_USER_APP   0x00046004         0x0000fffc         xr
+SRAM_PLATFORM_APP 0x20000000         0x00011fff         xrw
+SRAM_USER_APP    0x20012000         0x00002000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+START GROUP
+LOAD c:/program files (x86)/gnu tools arm embedded/8 2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
+END GROUP
+LOAD C:\Temp\ccWsyjR2.o
+LOAD C:\Temp\ccqVfLgD.o
+START GROUP
+LOAD c:/program files (x86)/gnu tools arm embedded/8 2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v7e-m+fp/hard\libgcc.a
+LOAD c:/program files (x86)/gnu tools arm embedded/8 2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a
+END GROUP
+                0x00000000                _Min_Heap_Size = 0x0
+                0x00000200                _Min_Stack_Size = 0x200
+
+.loc_UAPI_GPIO  0x00002000        0x0
+                0x00002000                UAPI_GPIO = .
+ *(SORT_BY_ALIGNMENT(.loc_UAPI_GPIO*))
+
+.loc_UAPI_UTIL  0x00002040        0x0
+                0x00002040                UAPI_UTIL = .
+ *(SORT_BY_ALIGNMENT(.loc_UAPI_UTIL*))
+
+.loc_UAPI_TIMER
+                0x00002080        0x0
+                0x00002080                UAPI_Timer = .
+ *(SORT_BY_ALIGNMENT(.loc_UAPI_TIMER*))
+
+.loc_UAPI_ADC   0x000020c0        0x0
+                0x000020c0                UAPI_ADC = .
+ *(SORT_BY_ALIGNMENT(.loc_UAPI_ADC*))
+
+.loc_UAPI_I2C   0x00002100        0x0
+                0x00002100                UAPI_I2C = .
+ *(SORT_BY_ALIGNMENT(.loc_UAPI_I2C*))
+
+.loc_UAPI_SPI   0x00002140        0x0
+                0x00002140                UAPI_SPI = .
+ *(SORT_BY_ALIGNMENT(.loc_UAPI_SPI*))
+
+.loc_UAPI_UART  0x00002180        0x0
+                0x00002180                UAPI_UART = .
+ *(SORT_BY_ALIGNMENT(.loc_UAPI_UART*))
+
+.loc_UAPI_UDP   0x000021c0        0x0
+                0x000021c0                UAPI_UDP = .
+ *(SORT_BY_ALIGNMENT(.loc_UAPI_UDP*))
+
+.loc_UAPI_DEBUG
+                0x00002200        0x0
+                0x00002200                UAPI_Debug = .
+ *(SORT_BY_ALIGNMENT(.loc_UAPI_DEBUG*))
+
+.loc_UAPI_COAP  0x00002240        0x0
+                0x00002240                UAPI_CoAP = .
+ *(SORT_BY_ALIGNMENT(.loc_UAPI_COAP*))
+
+.loc_UAPI_NVS   0x00002280        0x0
+                0x00002280                UAPI_NVS = .
+ *(SORT_BY_ALIGNMENT(.loc_UAPI_NVS*))
+
+.loc_UAPI_ETHERNET
+                0x000022c0        0x0
+                0x000022c0                UAPI_Ethernet = .
+ *(SORT_BY_ALIGNMENT(.loc_UAPI_ETHERNET*))
+
+.loc_UAPI_NODE  0x00002300        0x0
+                0x00002300                UAPI_Node = .
+ *(SORT_BY_ALIGNMENT(.loc_UAPI_NODE*))
+
+.loc_UAPI_NETWORK
+                0x00002340        0x0
+                0x00002340                UAPI_Network = .
+ *(SORT_BY_ALIGNMENT(.loc_UAPI_NETWORK*))
+
+.loc_UAPI_CLOCK
+                0x000023c0        0x0
+                0x000023c0                UAPI_Clock = .
+ *(SORT_BY_ALIGNMENT(.loc_UAPI_CLOCK*))
+
+.loc_platform_id
+                0x000024f0        0x0
+                0x000024f0                platform_id = .
+ *(SORT_BY_ALIGNMENT(.loc_platform_id))
+
+.loc_platform_version
+                0x000024f4        0x0
+                0x000024f4                platform_version = .
+ *(SORT_BY_ALIGNMENT(.loc_platform_version))
+
+.app_version    0x00046000        0x0
+                0x00046000                app_version = .
+
+.setupfunc      0x00046004       0xa4
+                0x00046004                _setupfunc = .
+ *(SORT_BY_ALIGNMENT(.setupfunc*))
+ .setupfunc     0x00046004       0xa4 C:\Temp\ccWsyjR2.o
+                0x00046004                SetupNode
+                0x000460a8                _esetupfunc = .
+
+.version        0x00046000        0x4
+ FILL mask 0xffffffff
+                0x00046000                . = ORIGIN (FLASH_USER_APP_VERSION)
+                0x00046000        0x1 BYTE 0xff
+                0x00046004                . = (ORIGIN (FLASH_USER_APP_VERSION) + LENGTH (FLASH_USER_APP_VERSION))
+ *fill*         0x00046001        0x3 ffffffff
+
+.text           0x000460a8      0x430
+                0x000460a8                _text = .
+ *(SORT_BY_ALIGNMENT(.text*))
+ .text          0x000460a8       0xfc C:\Temp\ccWsyjR2.o
+                0x000460ec                modbusTxHandler
+                0x0004617c                udpCallback
+ .text          0x000461a4      0x320 C:\Temp\ccqVfLgD.o
+                0x000461a4                calculateCRC
+                0x00046220                initModbus
+                0x00046244                transmitModbus
+                0x00046340                startRXModbus
+                0x00046380                txHandler
+                0x000463d4                rxHandler
+ *(SORT_BY_ALIGNMENT(.rodata*))
+ .rodata        0x000464c4       0x10 C:\Temp\ccWsyjR2.o
+ .rodata        0x000464d4        0x4 C:\Temp\ccqVfLgD.o
+                0x000464d8                _etext = .
+
+.glue_7         0x000464d8        0x0
+ .glue_7        0x000464d8        0x0 linker stubs
+
+.glue_7t        0x000464d8        0x0
+ .glue_7t       0x000464d8        0x0 linker stubs
+
+.vfp11_veneer   0x000464d8        0x0
+ .vfp11_veneer  0x000464d8        0x0 linker stubs
+
+.v4_bx          0x000464d8        0x0
+ .v4_bx         0x000464d8        0x0 linker stubs
+
+.iplt           0x000464d8        0x0
+ .iplt          0x000464d8        0x0 C:\Temp\ccWsyjR2.o
+
+.rel.dyn        0x000464d8        0x0
+ .rel.iplt      0x000464d8        0x0 C:\Temp\ccWsyjR2.o
+
+.data           0x20012000        0x0 load address 0x000464d8
+                0x20012000                _data = .
+ *(SORT_BY_ALIGNMENT(vtable))
+ *(SORT_BY_ALIGNMENT(.data*))
+ .data          0x20012000        0x0 C:\Temp\ccWsyjR2.o
+ .data          0x20012000        0x0 C:\Temp\ccqVfLgD.o
+                0x20012000                _edata = .
+                0x000464d8                _ldata = LOADADDR (.data)
+
+.igot.plt       0x20012000        0x0 load address 0x000464d8
+ .igot.plt      0x20012000        0x0 C:\Temp\ccWsyjR2.o
+
+.ARM.exidx
+ *(SORT_BY_ALIGNMENT(.ARM.exidx*))
+
+.bss            0x20012000      0x28c
+                0x20012000                _bss = .
+ *(SORT_BY_ALIGNMENT(.bss*))
+ .bss           0x20012000       0x81 C:\Temp\ccWsyjR2.o
+ *fill*         0x20012081        0x3 
+ .bss           0x20012084      0x208 C:\Temp\ccqVfLgD.o
+ *(SORT_BY_ALIGNMENT(COMMON))
+                0x2001228c                _ebss = .
+                0x2001228c                _end = .
+OUTPUT(Output/MODBUS_RTU_MR.elf elf32-littlearm)
+
+.comment        0x00000000       0x76
+ .comment       0x00000000       0x76 C:\Temp\ccWsyjR2.o
+                                 0x77 (size before relaxing)
+ .comment       0x00000076       0x77 C:\Temp\ccqVfLgD.o
+
+.ARM.attributes
+                0x00000000       0x34
+ .ARM.attributes
+                0x00000000       0x34 C:\Temp\ccWsyjR2.o
+ .ARM.attributes
+                0x00000034       0x34 C:\Temp\ccqVfLgD.o
+
+Cross Reference Table
+
+Symbol                                            File
+SetupNode                                         C:\Temp\ccWsyjR2.o
+UAPI_GPIO                                         C:\Temp\ccWsyjR2.o
+UAPI_Network                                      C:\Temp\ccWsyjR2.o
+UAPI_Timer                                        C:\Temp\ccWsyjR2.o
+UAPI_UART                                         C:\Temp\ccqVfLgD.o
+UAPI_UDP                                          C:\Temp\ccWsyjR2.o
+calculateCRC                                      C:\Temp\ccqVfLgD.o
+initModbus                                        C:\Temp\ccqVfLgD.o
+                                                  C:\Temp\ccWsyjR2.o
+modbusTxHandler                                   C:\Temp\ccWsyjR2.o
+rxHandler                                         C:\Temp\ccqVfLgD.o
+startRXModbus                                     C:\Temp\ccqVfLgD.o
+transmitModbus                                    C:\Temp\ccqVfLgD.o
+                                                  C:\Temp\ccWsyjR2.o
+txHandler                                         C:\Temp\ccqVfLgD.o
+udpCallback                                       C:\Temp\ccWsyjR2.o
