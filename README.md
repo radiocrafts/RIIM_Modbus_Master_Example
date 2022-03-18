@@ -2,7 +2,7 @@
 
 ## Description
 This is an example on how a mesh router in RIIM can act as an modbus master and read out data from one or more modbus/rtu slave and send read data through the riim network.
-It is differnet than the "transparent modbus" example where the riim network just forward the modbus packet transparently ([https://radiocrafts.github.io/TRANSPARENT_MODBUS_Example]).
+It is differnet than the "transparent modbus" example where the riim network just forward the modbus packet transparently ([https://radiocrafts.github.io/RIIM_Modbus_Master_Example/]).
 In this example the addressing, CRC generation and CRC check is handled locally in the mesh router. This means that a local intellegence in the mesh router is needed to determine which data to send, how often to read the sensor etc. The current example read a Tibbo BP#01 Modbus temperature sensor. The data can be sent as a COAP packet to the border router or a gateway. But currently the example only include a simple UDP transmssion to the border router.
 
 ---
