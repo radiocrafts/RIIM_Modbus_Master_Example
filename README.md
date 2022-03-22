@@ -32,7 +32,7 @@ Copy the catalog \Example_MODBUS_MASTER\ to you SDK under ICI_Applications\
 
 ## Full Documentation
 Please see the documentation located here:
-[https://radiocrafts.github.io/MODBUS_MASTER_Example]
+[https://radiocrafts.github.io/RIIM_Modbus_Master_Example/]
 
 ## Contact
 Contact Radiocrafts AS at [https://radiocrafts.com/contact/]
